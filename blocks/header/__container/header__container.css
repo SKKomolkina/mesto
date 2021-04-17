@@ -8,5 +8,13 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
-    border-bottom: 1px solid #545454;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 880px) {
+
+    .header__container {
+        margin-top: 28px;
+        min-height: 56px;
+    }
 }
