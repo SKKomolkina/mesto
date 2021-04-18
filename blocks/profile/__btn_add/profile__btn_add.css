@@ -1,0 +1,28 @@
+.profile__btn_add {
+    background-image: url(../../../images/plus.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: black;
+    min-width: 150px;
+    min-height: 50px;
+    margin: 0;
+    margin-left: 19%;
+    margin-bottom: 10px;
+    padding: 0;
+    cursor: pointer;
+    border-color: white;
+}
+
+.profile__btn_add:hover {
+    opacity: 0.5;
+}
+
+@media (max-width: 880px) {
+    
+    .profile__btn_add {
+        margin-top: 36px;
+        margin-left: 0;
+        min-width: 282px;
+        max-height: 50px;
+    }
+}
