@@ -1,4 +1,4 @@
-.popup__close {
+.popup__cross {
     position: absolute;
     top: calc(100vh - 88%);
     left: calc(100vw - 33%);

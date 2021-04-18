@@ -22,10 +22,13 @@
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__name/profile__name.css);
 @import url(../blocks/profile/__about/profile__about.css);
+@import url(../blocks/profile/__btn_edit/profile__btn_edit.css);
+@import url(../blocks/profile/__btn_add/profile__btn_add.css);
 
 /* <-----POPUP-----> */
 @import url(../blocks/popup/popup.css);
-@import url(../blocks/popup/__close/popup__close.css);
+@import url(../blocks/popup/__opened/popup__opened.css);
+@import url(../blocks/popup/__cross/popup__cross.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__input/popup__input.css);
