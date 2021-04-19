@@ -8,10 +8,26 @@
     border: none;
     cursor: pointer;
     position: absolute;
-    top: calc(100vh - 88%);
-    left: calc(100vw - 33%);
+    top: 18%;
+    left: 64%;
 }
 
 .popup__cross:hover {
     opacity: 0.5;
+}
+
+@media (max-width: 880px) {
+
+    .popup__cross {
+        max-width: 36px;
+        max-height: 36px;
+    } 
+}
+
+@media (max-width: 880px) {
+
+    .popup__cross {
+        max-width: 26px;
+        max-height: 26px;
+    } 
 }
