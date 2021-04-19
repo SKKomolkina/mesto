@@ -1,0 +1,21 @@
+.photo__icon {
+    min-width: 22px;
+    min-height: 19px;
+    margin: 0;
+    margin-bottom: 30px;
+    padding: 0;
+    background-image: url(../../../images/heart.svg);
+    background-size: cover;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.photo__icon:hover {
+    opacity: 0.5;
+}
+
+.photo__icon:active {
+    opacity: 1;
+    background-image: url(../../../images/heartfill.svg);
+}
