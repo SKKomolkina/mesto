@@ -15,15 +15,18 @@
 
 @media (max-width: 880px) {
     .profile__name {
+        max-width: calc(100vw - 33%);
         margin-bottom: 14px;
-        margin-right: 10px;
+        text-align: center;
+        font-size: 27px;
+        line-height: 33px;
     }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 350px) {
     
     .profile__name {
-        font-size: 27px;
-        line-height: 33px;
+        max-width: 189px;
+        min-width: 150px;
     }
 }

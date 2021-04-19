@@ -4,6 +4,17 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@media (max-width: 880px) {
+    
+    .profile__about {
+        min-width: calc(100vw - 12%);;
+        text-align: center;
+    }
 }
 
 @media (max-width: 550px) {

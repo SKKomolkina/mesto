@@ -17,3 +17,10 @@
         margin-top: 42px;
     }
 }
+
+@media (max-width: 360px) {
+    .profile__container {
+        padding-right: 19px;
+        padding-left: 19px;
+    }
+}
