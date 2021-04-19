@@ -21,23 +21,23 @@
             <div class="profile__container">
                 <img src="./images/avatar.jpg" alt="Ваше фото" class="profile__photo">
                 <div class="profile__info">
-                    <h2 class="profile__name">Жак Ив Кусто</h2>
-                    <button class="profile__btn_edit"></button>
-                    <p class="profile__about">Исследователь океана</p>
+                        <h2 class="profile__name">Жак Ив Кусто</h2>
+                        <button class="profile__btn_edit" value=""></button>
+                        <p class="profile__about">Исследователь океана</p>
                 </div>
                 <button class="profile__btn_add"></button>
             </div>
         </section>
 
-        <!--<section class="popup popup__opened">
-            <img class="popup__cross" src="./images/close.svg" alt="Закрыть окно">
-            <div class="popup__container">
+        <section class="popup popup__closed">
+            <button class="popup__cross"></button>
+            <form class="popup__container" action="" method="get" name="edit-form">
                 <h3 class="popup__title">Редактировать профиль</h3>
-                <input class="popup__input popup__input-name" type="text">
-                <input class="popup__input popup__input-about" type="text">
-
-            </div>
-        </section>-->
+                <input class="popup__input popup__input-name" type="text" name="name">
+                <input class="popup__input popup__input-about" type="text" name="about">
+                <button class="popup__save" type="submit">Сохранить</button>
+            </form>
+        </section>
     </main>
 
     <script src="script.js"></script>
