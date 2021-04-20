@@ -19,9 +19,11 @@
     outline: none;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 560px) {
     
     .popup__input {
         max-width: 238px;
+        margin-left: 22px;
+        margin-right: 22px;
     }
 }

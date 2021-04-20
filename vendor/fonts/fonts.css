@@ -18,6 +18,7 @@
     font-style: normal;
     font-weight: 700;
 }
+
 @font-face {
     src: url('Inter-Black.woff2') format('woff2'), url('Inter-Black.woff') format('woff');
     font-family: 'Inter', sans-serif;

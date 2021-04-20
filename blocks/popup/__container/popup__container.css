@@ -1,11 +1,10 @@
 .popup__container {
     position: absolute;
-    left: 34%;
-    right: 34%;
-    max-width: 430px;
-    max-height: 330px;
+    min-width: 430px;
+    min-height: 330px;
     margin: 0;
-    margin-top: 16%;
+    margin-top: 44px;
+    margin-right: 34px;
     padding: 0;
     background-color: white;
     color: black;
@@ -15,12 +14,44 @@
     border-radius: 15px;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 560px) {
     
     .popup__container {
-        max-width: 282px;
-        max-height: 322px;
+        min-width: 282px;
+        min-height: 322px;
+        margin-top: 26px;
+        margin-left: 34px;
+        /*max-width: 283px;
+        max-height: 323px;*/
+    }
+}
+/*
+@media (max-width: 1200px) {
+    
+    .popup__container {
+        min-width: 410px;
+        min-height: 310px;
         padding-top: 25px;
         padding-bottom: 25px;
     }
 }
+
+@media (max-width: 550px) {
+    
+    .popup__container {
+        min-width: 282px;
+        min-height: 322px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+}
+
+@media (max-width: 550px) {
+    
+    .popup__container {
+        min-width: 282px;
+        min-height: 322px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+}*/
