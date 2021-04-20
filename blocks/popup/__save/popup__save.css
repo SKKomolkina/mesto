@@ -13,9 +13,22 @@
     font-size: 18px;
     line-height: 21.78px;
     border: none;
+    border-radius: 2px;
     cursor: pointer;
 }
 
 .popup__save:hover {
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 560px) {
+    
+    .popup__save {
+        max-width: 238px;
+        min-height: 46px;
+        margin-top: 45px;
+        margin-left: 22px;
+        margin-right: 22px;
+        margin-bottom: 25px;
+    }
 }

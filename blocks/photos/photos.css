@@ -1,4 +1,14 @@
 .photos {
     margin: 0 auto;
     padding: 0;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+@media (max-width: 880px) {
+    
+    .photos {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }

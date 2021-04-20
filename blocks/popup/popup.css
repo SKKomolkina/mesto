@@ -1,14 +1,22 @@
 .popup {
     position: fixed;
     top: 0;
-    bottom: 0;
-    right: 0;
     left: 0;
-    min-width: 100vw;
-    min-height: 100vh;
+    min-width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    padding-top: 159px;
     background-color: rgba(0, 0, 0, 0.5);
-    /*display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;*/
+    justify-content: space-between;
+}
+
+@media (max-width: 560px) {
+    
+    .popup {
+        padding-top: 123px;
+    }
 }
