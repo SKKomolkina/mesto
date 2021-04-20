@@ -13,4 +13,4 @@
 * JavaScript
 * Адаптивная верстка
 
-skkomolkina.github.io/mesto/
+https://skkomolkina.github.io/mesto/
