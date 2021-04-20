@@ -12,7 +12,7 @@
 @media (max-width: 880px) {
     
     .profile__about {
-        min-width: calc(100vw - 12%);;
+        min-width: calc(100vw - 12%);
         text-align: center;
     }
 }
