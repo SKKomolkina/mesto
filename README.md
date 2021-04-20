@@ -7,6 +7,7 @@
 ### В работе использованы 
 
 * БЭМ
+* Git
 * HTML 5
 * CSS
 * JavaScript
