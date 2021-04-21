@@ -1,5 +1,4 @@
 .popup__cross {
-    position: absolute;
     min-height: 40px;
     min-width: 40px;
     margin: 0;
@@ -21,7 +20,6 @@
 @media (max-width: 560px) {
 
     .popup__cross {
-        top: 110px;
         margin-left: 254px;
         min-width: 26px;
         min-height: 26px;

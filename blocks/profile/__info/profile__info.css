@@ -1,7 +1,7 @@
 .profile__info {
     position: relative;
     max-width: 336px;
-    min-height: 73px;
+    /*min-height: 73px;*/
     margin: 0;
     padding: 0;
     display: flex;

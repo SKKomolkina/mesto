@@ -1,10 +1,7 @@
 .popup__container {
-    position: absolute;
     min-width: 430px;
     min-height: 330px;
     margin: 0;
-    margin-top: 44px;
-    margin-right: 34px;
     padding: 0;
     background-color: white;
     color: black;
@@ -20,38 +17,5 @@
         min-width: 282px;
         min-height: 322px;
         margin-top: 26px;
-        margin-left: 34px;
-        /*max-width: 283px;
-        max-height: 323px;*/
     }
 }
-/*
-@media (max-width: 1200px) {
-    
-    .popup__container {
-        min-width: 410px;
-        min-height: 310px;
-        padding-top: 25px;
-        padding-bottom: 25px;
-    }
-}
-
-@media (max-width: 550px) {
-    
-    .popup__container {
-        min-width: 282px;
-        min-height: 322px;
-        padding-top: 25px;
-        padding-bottom: 25px;
-    }
-}
-
-@media (max-width: 550px) {
-    
-    .popup__container {
-        min-width: 282px;
-        min-height: 322px;
-        padding-top: 25px;
-        padding-bottom: 25px;
-    }
-}*/
