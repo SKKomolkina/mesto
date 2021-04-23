@@ -26,7 +26,6 @@
 
 /* <-----PHOTOS-----> */
 @import url(../blocks/photos/photos.css);
-@import url(../blocks/photos/__grid/photos__grid.css);
 
 /* <-----PHOTO-----> */
 @import url(../blocks/photo/photo.css);
