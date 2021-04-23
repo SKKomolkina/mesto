@@ -1,26 +1,32 @@
-let buttonEditOpen = document.querySelector('.profile__btn-edit');
-let buttonEditClose = document.querySelector('.popup__cross');
-let popup = document.querySelector('.popup');
-let formElement = document.querySelector('.popup__container')
-let profileName = document.querySelector('.profile__name');
-let profileJob = document.querySelector('.profile__about');
-let nameInput = document.querySelector('.popup__input-name')
-let jobInput = document.querySelector('.popup__input-about')
+let buttonEditOpen = document.querySelector('.profile__btn-edit'); // кнопка открыть ред.
+let buttonEditClose = document.querySelector('.popup__cross'); // кнопка "крестик", закрыть ред.
+let popup = document.querySelector('.popup'); // окно редактирования
+let formElement = document.querySelector('.popup__container'); // форма редактирования
+let profileName = document.querySelector('.profile__name'); // отображение имени на гл.стр.
+let profileJob = document.querySelector('.profile__about'); // отображение деятельности на гл.стр.
+
 
 function openEdit () {
-    popup.classList.add('popup__opened');
+    popup.classList.add('popup_opened');
 } 
-buttonEditOpen.addEventListener('click', openEdit);
 
 function closeEdit () {
-    popup.classList.remove('popup__opened');
+    popup.classList.remove('popup_opened');
 }
-buttonEditClose.addEventListener('click', closeEdit);
 
+function formSubmitHandler (evt) {
+	evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
+	// Находим поля формы в DOM
+	let nameInput = document.querySelector('.popup__form-input_type_name'); // ввод имени
+	let jobInput = document.querySelector('.popup__form-input_type_about'); // ввод деятельности
 
-formElement.addEventListener('submit', function (evt) {
-    evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
-    popup.classList.remove('popup__opened');
-});
+
+    closeEdit ();
+}
+
+formElement.addEventListener('submit', formSubmitHandler);
+
+buttonEditOpen.addEventListener('click', openEdit); // открыть редактирование
+buttonEditClose.addEventListener('click', closeEdit); // закрыть ред.

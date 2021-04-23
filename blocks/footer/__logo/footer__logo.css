@@ -1,14 +1,17 @@
 .footer__logo {
     max-width: 328px;
-    max-height: 18px;
     margin: 0;
     padding: 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: rgba(84, 84, 84, 1);
 }
 
 @media (max-width: 550px) {
     
     .footer__logo {
-        max-width: 282px;
-        max-height: 14px;
+        font-size: 14px;
+        line-height: 17px;
     }
 }

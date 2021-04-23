@@ -11,9 +11,7 @@
 
 <body class="root">
     <header class="header">
-        <div class="header__container">
             <img class="logo header__logo" src="./images/logo.svg" alt="Логотип Mesto">
-        </div>
     </header>
 
     <main>
@@ -21,67 +19,65 @@
             <div class="profile__container">
                 <img src="./images/avatar.jpg" alt="Ваше фото" class="profile__photo">
                 <div class="profile__info">
-                    <h1 class="profile__name">Жак Ив Кусто</h1>
-                    <button class="profile__btn-edit" value=""></button>
+                    <h1 class="profile__name">Жак-Ив Кусто</h1>
+                    <button class="profile__btn-edit" type="button" value=""></button>
                     <p class="profile__about">Исследователь океана</p>
                 </div>
-                <button class="profile__btn-add"></button>
+                <button class="profile__btn-add" type="button"></button>
             </div>
         </section>
 
-        <section class="popup">
-            <button class="popup__cross"></button>
-            <form class="popup__container" action="" method="get" name="edit-form">
-                <h2 class="popup__title">Редактировать профиль</h2>
-                <input class="popup__input popup__input-name" type="text" name="name">
-                <input class="popup__input popup__input-about" type="text" name="about">
-                <button class="popup__save" type="submit">Сохранить</button>
-            </form>
-        </section>
-
-        <section class="photos">
-            <div class="photos__grid">
-                <div class="photo">
+        <section class="photos photos__grid">
+                <article class="photo">
                     <img class="photo__image" src="./images/greenland.png" alt="Гринландия">
                     <h3 class="photo__title">Гринландия</h3>
-                    <button class="photo__icon"></button>
-                </div>
+                    <button class="photo__icon" type="button" aria-label="Нравится"></button>
+                </article>
 
-                <div class="photo">
+                <article class="photo">
                     <img class="photo__image" src="./images/husky.jpg" alt="Финляндия">
                     <h3 class="photo__title">Финляндия</h3>
-                    <button class="photo__icon"></button>
-                </div>
+                    <button class="photo__icon" type="button" aria-label="Нравится"></button>
+                </article>
 
-                <div class="photo">
+                <article class="photo">
                     <img class="photo__image" src="./images/iceland.jpg" alt="Берег Исландии">
                     <h3 class="photo__title">Берег Исландии</h3>
-                    <button class="photo__icon"></button>
-                </div>
+                    <button class="photo__icon" type="button" aria-label="Нравится"></button>
+                </article>
 
-                <div class="photo">
+                <article class="photo">
                     <img class="photo__image" src="./images/trolltunga.jpg" alt="Язык Тролля">
                     <h3 class="photo__title">Язык Тролля</h3>
-                    <button class="photo__icon"></button>
-                </div>
+                    <button class="photo__icon" type="button" aria-label="Нравится"></button>
+                </article>
 
-                <div class="photo">
+                <article class="photo">
                     <img class="photo__image" src="./images/icelandbeach.jpg" alt="Рейнисфьяра">
                     <h3 class="photo__title">Рейнисфьяра</h3>
-                    <button class="photo__icon"></button>
-                </div>
+                    <button class="photo__icon" type="button" aria-label="Нравится"></button>
+                </article>
 
-                <div class="photo">
+                <article class="photo">
                     <img class="photo__image" src="./images/castle.jpg" alt="Эребру">
                     <h3 class="photo__title">Эребру</h3>
-                    <button class="photo__icon"></button>
-                </div>
-            </div>
+                    <button class="photo__icon" type="button" aria-label="Нравится"></button>
+                </article>
         </section>
+
+        <div class="popup">
+            <button class="popup__cross" type="button"></button>
+            <form class="popup__container" method="get" name="edit-form">
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <input class="popup__form popup__form-input_type_name" type="text" name="name" value="Жак-Ив Кусто">
+                <input class="popup__form popup__form-input_type_about" type="text" name="about" value="Исследователь океана">
+                <button class="popup__save" type="submit">Сохранить</button>
+            </form>
+        </div>
     </main>
 
     <footer class="footer">
-        <img class="footer__logo" src="./images/logofooter.svg" alt="Логотип сайта">
+        <p class="footer__logo">© 2020 Mesto Russia</p>
     </footer>
     <script src="./scripts/script.js"></script>
 </body>

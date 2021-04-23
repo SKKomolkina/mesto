@@ -10,5 +10,6 @@
 @media (max-width: 880px) {
     .profile__photo {
         margin-bottom: 26px;
+        margin-right: 0;
     }
 }

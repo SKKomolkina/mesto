@@ -1,7 +1,5 @@
 .profile__info {
     position: relative;
-    max-width: 336px;
-    /*min-height: 73px;*/
     margin: 0;
     padding: 0;
     display: flex;
@@ -9,22 +7,19 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
 }
 
 @media (max-width: 880px) {
     
     .profile__info {
-        max-width: calc(100vw - 12%);
+        max-width: 315px;
         justify-content: center;
     }
 }
-/*
-@media (max-width: 320px) {
+
+@media (max-width: 360px) {
     
     .profile__info {
         max-width: 282px;
     }
-}*/
+}

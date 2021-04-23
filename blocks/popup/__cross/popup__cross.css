@@ -13,15 +13,16 @@
 }
 
 .popup__cross:hover {
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 
 @media (max-width: 560px) {
 
     .popup__cross {
-        margin-left: 254px;
-        min-width: 26px;
-        min-height: 26px;
+        margin-left: 250px;
+        max-width: 26px;
+        max-height: 26px;
+        background-image: url(../../../images/Closelittle.svg);
     } 
 }

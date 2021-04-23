@@ -1,0 +1,35 @@
+.popup__form {
+    max-width: 358px;
+    margin: 0;
+    margin-bottom: 43px;
+    margin-left: 36px;
+    margin-right: 36px;
+    padding: 0;
+    font-family: inherit;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: rgba(0, 0, 0, 1);
+}
+
+.popup__form:last-of-type {
+    margin-bottom: 0;
+}
+
+.popup__form:focus {
+    outline: none;
+}
+
+@media (max-width: 560px) {
+    
+    .popup__form {
+        max-width: 238px;
+        margin-left: 22px;
+        margin-right: 22px;
+    }
+}
