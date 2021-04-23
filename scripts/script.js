@@ -17,8 +17,8 @@ function closeEdit () {
 function formSubmitHandler (evt) {
 	evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
 	// Находим поля формы в DOM
-	let nameInput = document.querySelector('.popup__form-type_name'); // ввод имени
-	let jobInput = document.querySelector('.popup__form-type_about'); // ввод деятельности
+	let nameInput = document.querySelector('.popup__form_type_name'); // ввод имени
+	let jobInput = document.querySelector('.popup__form_type_about'); // ввод деятельности
 
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
