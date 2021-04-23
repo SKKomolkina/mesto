@@ -1,14 +1,14 @@
 .header {
     max-width: 880px;
     margin: 0 auto;
-    margin-top: 45px; 
+    margin-top: 45px;
     padding: 0;
     padding-left: 25px;
     padding-right: 25px;
-    display: flex; 
-    flex-direction: row; 
-    justify-content: flex-start; 
-    align-items: flex-start; 
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
     border-bottom: 1px solid rgba(84, 84, 84, 0.7); 
 }
 
