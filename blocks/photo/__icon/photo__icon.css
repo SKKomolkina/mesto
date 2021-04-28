@@ -16,8 +16,3 @@
 .photo__icon:hover {
     opacity: 0.5;
 }
-
-.photo__icon:active {
-    opacity: 1;
-    background-image: url(../../../images/heartfill.svg);
-}
