@@ -16,14 +16,12 @@ const buttonOpenAddPhoto = document.querySelector('.profile__btn-add'); // кн�
 const buttonCloseAddPhoto = document.querySelector('.popup__btn-close_photo'); // кнопка "крестик", закрыть фото доб.
 const popupPhoto = document.querySelector('.popup__photo'); // окно доб. фото
 
-const photosContainer = document.querySelector('.photos'); // секция всех фото
-const likeButton = photosContainer.querySelectorAll('.photo__icon'); //like
-
 const titleValue = document.querySelector('.photo__title'); // заголовок фото
 const photoValue = document.querySelector('.photo__image'); // фото
 const photoInput = document.querySelector('.popup__form_type_image'); // форма ссылки фото
 const titleInput = document.querySelector('.popup__form_type_title'); // форма ввода заголовка
 
+/////////////PHOTO TEMPLATE/////////////
 const initialCards = [ 
     {
         name: 'Архыз',
@@ -46,10 +44,45 @@ const initialCards = [
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg',
     },
     {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
+        name: 'Байкал',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
     }
 ];
+
+
+
+// const likeButton = photosContainer.querySelectorAll('.photo__icon'); // like
+const buttonAddPhoto = document.querySelector('.popup__save-photo'); // кнопка сохранить
+const photoTemplate = document.querySelector('#photo-template').content; // шаблон фото карточки
+const photosContainer = document.querySelector('.photos'); // секция всех фото
+const photoElement = photoTemplate.querySelector('.photo').cloneNode(true); // копирование узла фото карточки
+
+function createCard (item) {
+    const newPhotoCard = photoTemplate.querySelector('.photo').cloneNode(true);
+    const newPhoto = newPhotoCard.querySelector('.photo__image');
+    const newTitle = newPhotoCard.querySelector('.photo__title');
+    const cardRemovePhotoCard = newPhotoCard.querySelector('.photo__trash');
+    
+    newPhoto.src = item.link;
+    newTitle.textContent = item.name;
+
+    cardRemovePhotoCard.addEventListener('click', function(evt) {
+        evt.target.closest('.photo').remove()
+    });
+    return newPhotoCard
+}
+
+initialCards.forEach(function(element){
+    const newCard = createCard(element);
+    photosContainer.append(newCard);
+});
+
+buttonAddPhoto.addEventListener('click', function() {
+    const photo = photoInput.value;
+    const title = titleInput.value;
+    
+    createCard(photo, title);
+});
 
 
 /////////////POPUP PROFILE functional/////////////
@@ -89,6 +122,5 @@ function closeAdd () {
 
 buttonOpenAddPhoto.addEventListener('click', openAdd); // открыть доб. фото
 buttonCloseAddPhoto.addEventListener('click', closeAdd); // закрыть доб. фото
-
 
 

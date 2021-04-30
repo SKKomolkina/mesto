@@ -1,6 +1,6 @@
 .photo__image {
-    max-width: 282px;
-    /*max-height: 282px;*/
+    min-width: 282px;
+    max-height: 282px;
     margin-bottom: 25px;
     object-fit: cover;
     object-position: center;

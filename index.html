@@ -10,7 +10,7 @@
 </head>
 
 <body class="root">
-    
+
     <header class="header">
         <img class="logo header__logo" src="./images/logo.svg" alt="Логотип Mesto">
     </header>
@@ -30,59 +30,7 @@
         </section>
 
         <section class="photos">
-            <article class="photo">
-                <div class="photo__image-container">
-                    <button class="photo__trash" aria-label="Удалить"></button>
-                    <img class="photo__image" src="./images/greenland.png" alt="Гринландия">
-                </div>
-                <h3 class="photo__title">Гринландия</h3>
-                <button class="photo__icon" type="button" aria-label="Нравится"></button>
-            </article>
 
-            <article class="photo">
-                <div class="photo__image-container">
-                    <button class="photo__trash" aria-label="Удалить"></button>
-                    <img class="photo__image" src="./images/husky.jpg" alt="Финляндия">
-                </div>
-                <h3 class="photo__title">Финляндия</h3>
-                <button class="photo__icon" type="button" aria-label="Нравится"></button>
-            </article>
-
-            <article class="photo">
-                <div class="photo__image-container">
-                    <button class="photo__trash" aria-label="Удалить"></button>
-                    <img class="photo__image" src="./images/iceland.jpg" alt="Берег Исландии">
-                </div>
-                <h3 class="photo__title">Берег Исландии</h3>
-                <button class="photo__icon" type="button" aria-label="Нравится"></button>
-            </article>
-
-            <article class="photo">
-                <div class="photo__image-container">
-                    <button class="photo__trash" aria-label="Удалить"></button>
-                    <img class="photo__image" src="./images/trolltunga.jpg" alt="Язык Тролля">
-                </div>
-                <h3 class="photo__title">Язык Тролля</h3>
-                <button class="photo__icon" type="button" aria-label="Нравится"></button>
-            </article>
-
-            <article class="photo">
-                <div class="photo__image-container">
-                    <button class="photo__trash" aria-label="Удалить"></button>
-                    <img class="photo__image" src="./images/icelandbeach.jpg" alt="Рейнисфьяра">
-                </div>
-                <h3 class="photo__title">Рейнисфьяра</h3>
-                <button class="photo__icon" type="button" aria-label="Нравится"></button>
-            </article>
-
-            <article class="photo">
-                <div class="photo__image-container">
-                    <button class="photo__trash" aria-label="Удалить"></button>
-                    <img class="photo__image" src="./images/castle.jpg" alt="Эребру">
-                </div>
-                <h3 class="photo__title">Эребру</h3>
-                <button class="photo__icon" type="button" aria-label="Нравится"></button>
-            </article>
         </section>
 
     </main>
@@ -110,7 +58,7 @@
             <input class="popup__form popup__form_type_title" type="text" name="title" value="" placeholder="Название">
             <input class="popup__form popup__form_type_image" type="text" name="image" value=""
                 placeholder="Ссылка на картинку">
-            <button class="popup__save" type="submit">Создать</button>
+            <button class="popup__save popup__save-photo" type="submit">Создать</button>
         </form>
     </div>
 
@@ -119,14 +67,14 @@
         <article class="photo">
             <div class="photo__image-container">
                 <button class="photo__trash" aria-label="Удалить"></button>
-                <img class="photo__image" src="./images/castle.jpg" alt="Эребру">
+                <img class="photo__image" src="" alt="">
             </div>
-            <h3 class="photo__title">Эребру</h3>
+            <h3 class="photo__title"></h3>
             <button class="photo__icon" type="button" aria-label="Нравится"></button>
         </article>
     </template>
 
-    <script src="./scripts/script.js"></script>
+    <script src="./scripts/index.js"></script>
 </body>
 
 </html>
