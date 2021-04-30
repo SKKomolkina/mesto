@@ -10,11 +10,13 @@
 </head>
 
 <body class="root">
+    
     <header class="header">
-            <img class="logo header__logo" src="./images/logo.svg" alt="Логотип Mesto">
+        <img class="logo header__logo" src="./images/logo.svg" alt="Логотип Mesto">
     </header>
 
     <main>
+
         <section class="profile">
             <div class="profile__container">
                 <img src="./images/avatar.jpg" alt="Ваше фото" class="profile__photo">
@@ -28,48 +30,67 @@
         </section>
 
         <section class="photos">
-                <article class="photo">
+            <article class="photo">
+                <div class="photo__image-container">
+                    <button class="photo__trash" aria-label="Удалить"></button>
                     <img class="photo__image" src="./images/greenland.png" alt="Гринландия">
-                    <h3 class="photo__title">Гринландия</h3>
-                    <button class="photo__icon" type="button" aria-label="Нравится"></button>
-                </article>
+                </div>
+                <h3 class="photo__title">Гринландия</h3>
+                <button class="photo__icon" type="button" aria-label="Нравится"></button>
+            </article>
 
-                <article class="photo">
+            <article class="photo">
+                <div class="photo__image-container">
+                    <button class="photo__trash" aria-label="Удалить"></button>
                     <img class="photo__image" src="./images/husky.jpg" alt="Финляндия">
-                    <h3 class="photo__title">Финляндия</h3>
-                    <button class="photo__icon" type="button" aria-label="Нравится"></button>
-                </article>
+                </div>
+                <h3 class="photo__title">Финляндия</h3>
+                <button class="photo__icon" type="button" aria-label="Нравится"></button>
+            </article>
 
-                <article class="photo">
+            <article class="photo">
+                <div class="photo__image-container">
+                    <button class="photo__trash" aria-label="Удалить"></button>
                     <img class="photo__image" src="./images/iceland.jpg" alt="Берег Исландии">
-                    <h3 class="photo__title">Берег Исландии</h3>
-                    <button class="photo__icon" type="button" aria-label="Нравится"></button>
-                </article>
+                </div>
+                <h3 class="photo__title">Берег Исландии</h3>
+                <button class="photo__icon" type="button" aria-label="Нравится"></button>
+            </article>
 
-                <article class="photo">
+            <article class="photo">
+                <div class="photo__image-container">
+                    <button class="photo__trash" aria-label="Удалить"></button>
                     <img class="photo__image" src="./images/trolltunga.jpg" alt="Язык Тролля">
-                    <h3 class="photo__title">Язык Тролля</h3>
-                    <button class="photo__icon" type="button" aria-label="Нравится"></button>
-                </article>
+                </div>
+                <h3 class="photo__title">Язык Тролля</h3>
+                <button class="photo__icon" type="button" aria-label="Нравится"></button>
+            </article>
 
-                <article class="photo">
+            <article class="photo">
+                <div class="photo__image-container">
+                    <button class="photo__trash" aria-label="Удалить"></button>
                     <img class="photo__image" src="./images/icelandbeach.jpg" alt="Рейнисфьяра">
-                    <h3 class="photo__title">Рейнисфьяра</h3>
-                    <button class="photo__icon" type="button" aria-label="Нравится"></button>
-                </article>
+                </div>
+                <h3 class="photo__title">Рейнисфьяра</h3>
+                <button class="photo__icon" type="button" aria-label="Нравится"></button>
+            </article>
 
-                <article class="photo">
+            <article class="photo">
+                <div class="photo__image-container">
+                    <button class="photo__trash" aria-label="Удалить"></button>
                     <img class="photo__image" src="./images/castle.jpg" alt="Эребру">
-                    <h3 class="photo__title">Эребру</h3>
-                    <button class="photo__icon" type="button" aria-label="Нравится"></button>
-                </article>
+                </div>
+                <h3 class="photo__title">Эребру</h3>
+                <button class="photo__icon" type="button" aria-label="Нравится"></button>
+            </article>
         </section>
+
     </main>
 
     <footer class="footer">
         <p class="footer__logo">© 2020 Mesto Russia</p>
     </footer>
-    
+
     <!-- //  POPUP_PROFILE-->
     <div class="popup popup__profile">
         <button class="popup__cross popup__btn-close_profile" type="button"></button>
@@ -87,10 +108,24 @@
         <form class="popup__container" method="get" name="image-form">
             <h2 class="popup__title">Новое место</h2>
             <input class="popup__form popup__form_type_title" type="text" name="title" value="" placeholder="Название">
-            <input class="popup__form popup__form_type_link" type="text" name="link" value="" placeholder="Ссылка на картинку">
+            <input class="popup__form popup__form_type_image" type="text" name="image" value=""
+                placeholder="Ссылка на картинку">
             <button class="popup__save" type="submit">Создать</button>
         </form>
     </div>
+
+    <!--// PHOTO_TEMPLATE-->
+    <template id="photo-template">
+        <article class="photo">
+            <div class="photo__image-container">
+                <button class="photo__trash" aria-label="Удалить"></button>
+                <img class="photo__image" src="./images/castle.jpg" alt="Эребру">
+            </div>
+            <h3 class="photo__title">Эребру</h3>
+            <button class="photo__icon" type="button" aria-label="Нравится"></button>
+        </article>
+    </template>
+
     <script src="./scripts/script.js"></script>
 </body>
 
