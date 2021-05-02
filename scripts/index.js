@@ -1,4 +1,5 @@
 /////////////POPUP PROFILE/////////////
+const popupProfileForm = document.querySelector('.popup__container-profile'); // форма popup
 const buttonOpenEdit = document.querySelector('.profile__btn-edit'); // кнопка открыть ред.
 const buttonCloseEdit = document.querySelector('.popup__btn-close_profile'); // кнопка "крестик", закрыть ред.
 const popupEdit = document.querySelector('.popup__profile'); // окно редактирования
@@ -9,20 +10,8 @@ const nameInput = document.querySelector('.popup__form_type_name'); // ввод 
 const jobInput = document.querySelector('.popup__form_type_about'); // ввод деятельности
 
 
-const popupProfileForm = document.querySelector('.popup__container'); // форма popup
-
-/////////////POPUP PHOTO/////////////
-const buttonOpenAddPhoto = document.querySelector('.profile__btn-add'); // кнопка открыть фото доб.
-const buttonCloseAddPhoto = document.querySelector('.popup__btn-close_photo'); // кнопка "крестик", закрыть фото доб.
-const popupPhoto = document.querySelector('.popup__photo'); // окно доб. фото
-
-const titleValue = document.querySelector('.photo__title'); // заголовок фото
-const photoValue = document.querySelector('.photo__image'); // фото
-const photoInput = document.querySelector('.popup__form_type_image'); // форма ссылки фото
-const titleInput = document.querySelector('.popup__form_type_title'); // форма ввода заголовка
-
 /////////////PHOTO TEMPLATE/////////////
-const initialCards = [ 
+const initialCards = [
     {
         name: 'Архыз',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
@@ -50,59 +39,87 @@ const initialCards = [
 ];
 
 
-
-// const likeButton = photosContainer.querySelectorAll('.photo__icon'); // like
-const buttonAddPhoto = document.querySelector('.popup__save-photo'); // кнопка сохранить
-const photoTemplate = document.querySelector('#photo-template').content; // шаблон фото карточки
+const photoTemplate = document.querySelector('#photo-template'); // шаблон фото карточки
 const photosContainer = document.querySelector('.photos'); // секция всех фото
-const photoElement = photoTemplate.querySelector('.photo').cloneNode(true); // копирование узла фото карточки
 
-function createCard (item) {
-    const newPhotoCard = photoTemplate.querySelector('.photo').cloneNode(true);
-    const newPhoto = newPhotoCard.querySelector('.photo__image');
-    const newTitle = newPhotoCard.querySelector('.photo__title');
-    const cardRemovePhotoCard = newPhotoCard.querySelector('.photo__trash');
-    
-    newPhoto.src = item.link;
-    newTitle.textContent = item.name;
 
-    cardRemovePhotoCard.addEventListener('click', function(evt) {
-        evt.target.closest('.photo').remove()
+/////////////POPUP PHOTO/////////////
+const popupPhotoForm = document.querySelector('.popup__container-photo'); // форма popup
+
+const buttonOpenAddPhoto = document.querySelector('.profile__btn-add'); // кнопка открыть фото доб.
+const buttonCloseAddPhoto = document.querySelector('.popup__btn-close_photo'); // кнопка "крестик", закрыть фото доб.
+const popupPhoto = document.querySelector('.popup__photo'); // окно доб. фото
+const savePhoto = document.querySelector('.popup__save');
+
+function createCard(photo, title) {
+    const newPhotoCard = photoTemplate.content.querySelector('.photo').cloneNode(true); // clone 
+    const newPhoto = newPhotoCard.querySelector('.photo__image'); // новое фото
+    const newTitle = newPhotoCard.querySelector('.photo__title'); // новый заголовок
+    const cardRemoveButton = newPhotoCard.querySelector('.photo__trash'); // delete photoCard
+    const likeButton = newPhotoCard.querySelector('.photo__icon'); // like
+
+    newPhoto.src = photo;
+    newTitle.textContent = title;
+
+    likeButton.addEventListener('click', function (evt) {
+        const like = evt.target;
+        like.classList.toggle('photo__like_active');
     });
+
+    function handlerRemoveCard(evt) {
+        evt.target.closest('.photo').remove()
+    };
+    cardRemoveButton.addEventListener('click', handlerRemoveCard);
+
     return newPhotoCard
 }
 
-initialCards.forEach(function(element){
-    const newCard = createCard(element);
+
+initialCards.forEach(function(item) {
+    const newCard = createCard(item.link, item.name);
     photosContainer.append(newCard);
 });
 
-buttonAddPhoto.addEventListener('click', function() {
+
+const titleInput = document.querySelector('.popup__form_type_title'); // форма ввода заголовка
+const photoInput = document.querySelector('.popup__form_type_image'); // форма ссылки 
+const titleValue = photosContainer.querySelector('.photo__title'); // заголовок фото
+const photoValue = photosContainer.querySelector('.photo__image'); // фото
+
+function handleAddPhoto(evt) {
+    evt.preventDefault();
+    
     const photo = photoInput.value;
     const title = titleInput.value;
-    
-    createCard(photo, title);
-});
+    const newCard = createCard(photo, title);
+
+    photosContainer.append(newCard);
+
+    photoInput.value = '';
+    titleInput.value = ''
+}
+
+popupPhotoForm.addEventListener('submit', handleAddPhoto);
 
 
 /////////////POPUP PROFILE functional/////////////
-function openEdit () {
+function openEdit() {
     popupEdit.classList.add('popup_opened');
     nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
-} 
+}
 
-function closeEdit () {
+function closeEdit() {
     popupEdit.classList.remove('popup_opened');
 }
 
-function formSubmitHandler (evt) {
-	evt.preventDefault(); 
-    
+function formSubmitHandler(evt) {
+    evt.preventDefault();
+
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
 
-    closeEdit ();
+    closeEdit();
 }
 
 popupEdit.addEventListener('submit', formSubmitHandler); // сохранить данные в профиль
@@ -112,11 +129,11 @@ buttonCloseEdit.addEventListener('click', closeEdit); // закрыть ред.
 
 
 /////////////POPUP PHOTO functional/////////////
-function openAdd () {
+function openAdd() {
     popupPhoto.classList.add('popup_opened');
 }
 
-function closeAdd () {
+function closeAdd() {
     popupPhoto.classList.remove('popup_opened');
 }
 
