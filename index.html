@@ -50,7 +50,7 @@
         </form>
     </div>
 
-    <!--// POPUP_IMG-->
+    <!--// POPUP_photo-->
     <div class="popup popup__photo">
         <button class="popup__cross popup__btn-close_photo" type="button"></button>
         <form class="popup__container popup__container-photo" name="image-form">
@@ -62,12 +62,23 @@
         </form>
     </div>
 
+    <!--// POPUP_img-open-->
+    <div class="popup popup__full-photo">
+        <div class="popup__figure-flex">
+            <button class="popup__close popup__full-photo_btn-close" type="button"></button>
+            <figure class="popup__container popup__container-image popup__container-image_open">
+                <img class="popup__image" src="" alt="">
+                <figcaption class="popup__caption"></figcaption>
+            </figure>
+        </div>
+    </div>
+
     <!--// PHOTO_TEMPLATE-->
     <template id="photo-template">
         <article class="photo">
             <div class="photo__image-container">
                 <button class="photo__trash" aria-label="Удалить" type="button"></button>
-                <img class="photo__image" src="" alt="">
+                <img class="photo__image photo__image_open" src="" alt="">
             </div>
             <h3 class="photo__title"></h3>
             <button class="photo__icon" type="button" aria-label="Нравится"></button>

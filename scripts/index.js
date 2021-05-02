@@ -10,6 +10,15 @@ const nameInput = document.querySelector('.popup__form_type_name'); // ввод 
 const jobInput = document.querySelector('.popup__form_type_about'); // ввод деятельности
 
 
+/////////////POPUP PHOTO/////////////
+const popupPhotoForm = document.querySelector('.popup__container-photo'); // форма popup
+
+const buttonOpenAddPhoto = document.querySelector('.profile__btn-add'); // кнопка открыть фото доб.
+const buttonCloseAddPhoto = document.querySelector('.popup__btn-close_photo'); // кнопка "крестик", закрыть фото доб.
+const popupPhoto = document.querySelector('.popup__photo'); // окно доб. фото
+const savePhoto = document.querySelector('.popup__save');
+
+
 /////////////PHOTO TEMPLATE/////////////
 const initialCards = [
     {
@@ -42,38 +51,45 @@ const initialCards = [
 const photoTemplate = document.querySelector('#photo-template'); // шаблон фото карточки
 const photosContainer = document.querySelector('.photos'); // секция всех фото
 
-
-/////////////POPUP PHOTO/////////////
-const popupPhotoForm = document.querySelector('.popup__container-photo'); // форма popup
-
-const buttonOpenAddPhoto = document.querySelector('.profile__btn-add'); // кнопка открыть фото доб.
-const buttonCloseAddPhoto = document.querySelector('.popup__btn-close_photo'); // кнопка "крестик", закрыть фото доб.
-const popupPhoto = document.querySelector('.popup__photo'); // окно доб. фото
-const savePhoto = document.querySelector('.popup__save');
+const fullPhotoPopup = document.querySelector('.popup__full-photo');
+const closefullPhotoPopup = document.querySelector('.popup__full-photo_btn-close')
+const fullPhoto = document.querySelector('.popup__image');
+const fullTitle = document.querySelector('.popup__caption');
+const closeFullPhotoPopup = document.querySelector('.popup__full-photo_btn-close');
 
 function createCard(photo, title) {
     const newPhotoCard = photoTemplate.content.querySelector('.photo').cloneNode(true); // clone 
     const newPhoto = newPhotoCard.querySelector('.photo__image'); // новое фото
     const newTitle = newPhotoCard.querySelector('.photo__title'); // новый заголовок
-    const cardRemoveButton = newPhotoCard.querySelector('.photo__trash'); // delete photoCard
-    const likeButton = newPhotoCard.querySelector('.photo__icon'); // like
 
     newPhoto.src = photo;
+    newPhoto.alt = title;
     newTitle.textContent = title;
 
-    likeButton.addEventListener('click', function (evt) {
-        const like = evt.target;
-        like.classList.toggle('photo__like_active');
-    });
-
-    function handlerRemoveCard(evt) {
-        evt.target.closest('.photo').remove()
-    };
-    cardRemoveButton.addEventListener('click', handlerRemoveCard);
-
+    newPhotoCard.querySelector('.photo__icon').addEventListener('click', like);
+    newPhotoCard.querySelector('.photo__trash').addEventListener('click', remove);
+    newPhotoCard.querySelector('.photo__image').addEventListener('click', openFullPhoto);
     return newPhotoCard
 }
 
+const like = (evt) => {
+    evt.target.classList.toggle('photo__like_active');
+}
+
+const remove = (evt) => {
+    evt.target.closest('.photo').remove();
+}
+
+const openFullPhoto = (evt) => {
+    fullPhoto.src = evt.target.src;
+    fullPhoto.alt = evt.target.alt;
+    fullTitle.textContent = evt.target.alt;
+    fullPhotoPopup.classList.add('popup_opened');
+}
+
+function closeFullPhoto () {
+    fullPhotoPopup.classList.remove('popup_opened');
+}
 
 initialCards.forEach(function(item) {
     const newCard = createCard(item.link, item.name);
@@ -93,13 +109,16 @@ function handleAddPhoto(evt) {
     const title = titleInput.value;
     const newCard = createCard(photo, title);
 
-    photosContainer.append(newCard);
+    photosContainer.prepend(newCard);
 
     photoInput.value = '';
-    titleInput.value = ''
+    titleInput.value = '';
+
+    closeAdd();
 }
 
 popupPhotoForm.addEventListener('submit', handleAddPhoto);
+closeFullPhotoPopup.addEventListener('click', closeFullPhoto);
 
 
 /////////////POPUP PROFILE functional/////////////
@@ -139,5 +158,3 @@ function closeAdd() {
 
 buttonOpenAddPhoto.addEventListener('click', openAdd); // открыть доб. фото
 buttonCloseAddPhoto.addEventListener('click', closeAdd); // закрыть доб. фото
-
-
