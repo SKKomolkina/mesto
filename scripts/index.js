@@ -54,7 +54,7 @@ const photosContainer = document.querySelector('.photos'); // секция вс�
 const fullPhotoPopup = document.querySelector('.popup_full_photo');
 const fullPhoto = document.querySelector('.popup__image');
 const fullTitle = document.querySelector('.popup__caption');
-const closeFullPhotoPopup = document.querySelector('.popup__close_full_photo_btn-close');
+const closeFullPhotoPopup = document.querySelector('.popup__close_btn_close');
 
 function createCard(photo, title) {
     const newPhotoCard = photoTemplate.content.querySelector('.photo').cloneNode(true); // clone 
