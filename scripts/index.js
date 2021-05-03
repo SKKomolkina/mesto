@@ -1,7 +1,7 @@
 /////////////POPUP PROFILE/////////////
 const popupProfileForm = document.querySelector('.popup__container-profile'); // форма popup
 const buttonOpenEdit = document.querySelector('.profile__btn-edit'); // кнопка открыть ред.
-const buttonCloseEdit = document.querySelector('.popup-btn_close-profile'); // кнопка "крестик", закрыть ред.
+const buttonCloseEdit = document.querySelector('.popup__cross_btn_close-profile'); // кнопка "крестик", закрыть ред.
 const popupEdit = document.querySelector('.popup-profile'); // окно редактирования
 
 const profileName = document.querySelector('.profile__name'); // отображение имени на гл.стр.
@@ -14,7 +14,7 @@ const jobInput = document.querySelector('.popup__form_type_about'); // ввод 
 const popupPhotoForm = document.querySelector('.popup__container-photo'); // форма popup
 
 const buttonOpenAddPhoto = document.querySelector('.profile__btn-add'); // кнопка открыть фото доб.
-const buttonCloseAddPhoto = document.querySelector('.popup-btn_close-photo'); // кнопка "крестик", закрыть фото доб.
+const buttonCloseAddPhoto = document.querySelector('.popup__cross_btn_close-photo'); // кнопка "крестик", закрыть фото доб.
 const popupPhoto = document.querySelector('.popup-photo'); // окно доб. фото
 const savePhoto = document.querySelector('.popup__save');
 
@@ -54,7 +54,7 @@ const photosContainer = document.querySelector('.photos'); // секция вс�
 const fullPhotoPopup = document.querySelector('.popup_full_photo');
 const fullPhoto = document.querySelector('.popup__image');
 const fullTitle = document.querySelector('.popup__caption');
-const closeFullPhotoPopup = document.querySelector('.popup_full-photo_btn-close');
+const closeFullPhotoPopup = document.querySelector('.popup__close_full_photo_btn-close');
 
 function createCard(photo, title) {
     const newPhotoCard = photoTemplate.content.querySelector('.photo').cloneNode(true); // clone 
