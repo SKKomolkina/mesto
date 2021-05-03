@@ -1,8 +1,8 @@
 /////////////POPUP PROFILE/////////////
 const popupProfileForm = document.querySelector('.popup__container-profile'); // форма popup
 const buttonOpenEdit = document.querySelector('.profile__btn-edit'); // кнопка открыть ред.
-const buttonCloseEdit = document.querySelector('.popup__btn-close_profile'); // кнопка "крестик", закрыть ред.
-const popupEdit = document.querySelector('.popup__profile'); // окно редактирования
+const buttonCloseEdit = document.querySelector('.popup__btn_close_profile'); // кнопка "крестик", закрыть ред.
+const popupEdit = document.querySelector('.popup-profile'); // окно редактирования
 
 const profileName = document.querySelector('.profile__name'); // отображение имени на гл.стр.
 const profileJob = document.querySelector('.profile__about'); // отображение деятельности на гл.стр.
@@ -14,8 +14,8 @@ const jobInput = document.querySelector('.popup__form_type_about'); // ввод 
 const popupPhotoForm = document.querySelector('.popup__container-photo'); // форма popup
 
 const buttonOpenAddPhoto = document.querySelector('.profile__btn-add'); // кнопка открыть фото доб.
-const buttonCloseAddPhoto = document.querySelector('.popup__btn-close_photo'); // кнопка "крестик", закрыть фото доб.
-const popupPhoto = document.querySelector('.popup__photo'); // окно доб. фото
+const buttonCloseAddPhoto = document.querySelector('.popup__btn_close_photo'); // кнопка "крестик", закрыть фото доб.
+const popupPhoto = document.querySelector('.popup-photo'); // окно доб. фото
 const savePhoto = document.querySelector('.popup__save');
 
 
@@ -51,11 +51,11 @@ const initialCards = [
 const photoTemplate = document.querySelector('#photo-template'); // шаблон фото карточки
 const photosContainer = document.querySelector('.photos'); // секция всех фото
 
-const fullPhotoPopup = document.querySelector('.popup__full-photo');
-const closefullPhotoPopup = document.querySelector('.popup__full-photo_btn-close')
+const fullPhotoPopup = document.querySelector('.popup__full_photo');
+const closefullPhotoPopup = document.querySelector('.popup__full_photo_btn-close')
 const fullPhoto = document.querySelector('.popup__image');
 const fullTitle = document.querySelector('.popup__caption');
-const closeFullPhotoPopup = document.querySelector('.popup__full-photo_btn-close');
+const closeFullPhotoPopup = document.querySelector('.popup__full_photo_btn-close');
 
 function createCard(photo, title) {
     const newPhotoCard = photoTemplate.content.querySelector('.photo').cloneNode(true); // clone 
