@@ -1,7 +1,7 @@
 /////////////POPUP PROFILE/////////////
 const popupProfileForm = document.querySelector('.popup__container-profile'); // форма popup
 const buttonOpenEdit = document.querySelector('.profile__btn-edit'); // кнопка открыть ред.
-const buttonCloseEdit = document.querySelector('.popup_btn_close_profile'); // кнопка "крестик", закрыть ред.
+const buttonCloseEdit = document.querySelector('.popup_btn_close-profile'); // кнопка "крестик", закрыть ред.
 const popupEdit = document.querySelector('.popup-profile'); // окно редактирования
 
 const profileName = document.querySelector('.profile__name'); // отображение имени на гл.стр.
