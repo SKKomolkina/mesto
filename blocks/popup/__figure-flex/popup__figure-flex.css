@@ -5,3 +5,10 @@
     justify-content: flex-start;
     align-items: flex-start;
 }
+
+@media (max-width: 768px) {
+    
+    .popup__figure-flex {
+        max-width: 75vw;
+    }
+}
