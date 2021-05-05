@@ -42,10 +42,10 @@
     <!-- //  POPUP_PROFILE-->
     <div class="popup popup-profile">
         <button class="popup__cross popup__cross_btn_close-profile" type="button"></button>
-        <form class="popup__container popup__container-profile" method="get" name="edit-form">
+        <form class="popup__form popup__form_profile" method="get" name="edit-form">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <input class="popup__form popup__form_type_name" type="text" name="name" value="Жак-Ив Кусто">
-            <input class="popup__form popup__form_type_about" type="text" name="about" value="Исследователь океана">
+            <input class="popup__input popup__input_type_name" type="text" name="name" value="Жак-Ив Кусто" required>
+            <input class="popup__input popup__input_type_about" type="text" name="about" value="Исследователь океана" required>
             <button class="popup__save" type="submit">Сохранить</button>
         </form>
     </div>
@@ -53,11 +53,11 @@
     <!--// POPUP_photo-->
     <div class="popup popup-photo">
         <button class="popup__cross popup__cross_btn_close-photo" type="button"></button>
-        <form class="popup__container popup__container-photo" name="image-form">
+        <form class="popup__form popup__form_photo" name="image-form">
             <h2 class="popup__title">Новое место</h2>
-            <input class="popup__form popup__form_type_title" type="text" name="title" value="" placeholder="Название">
-            <input class="popup__form popup__form_type_image" type="text" name="image" value=""
-                placeholder="Ссылка на картинку">
+            <input class="popup__input popup__input_type_title" type="text" name="title" value="" placeholder="Название" required>
+            <input class="popup__input popup__input_type_image" type="url" name="image" value=""
+                placeholder="Ссылка на картинку" required>
             <button class="popup__save popup__save-photo" type="submit">Создать</button>
         </form>
     </div>
@@ -67,7 +67,7 @@
         <div class="popup__figure-flex">
             <button class="popup__close popup__close_btn_close" type="button"></button>
             <figure class="popup__container popup__container-image popup__container-image_open">
-                <img class="popup__image" src="''" alt="''">
+                <img class="popup__image" src="#" alt="#">
                 <figcaption class="popup__caption"></figcaption>
             </figure>
         </div>
@@ -78,10 +78,10 @@
         <article class="photo">
             <div class="photo__image-container">
                 <button class="photo__trash" aria-label="Удалить" type="button"></button>
-                <img class="photo__image photo__image_open" src="''" alt="''">
+                <img class="photo__image photo__image_open" src="#" alt="#">
             </div>
             <h3 class="photo__title"></h3>
-            <button class="photo__icon" type="button" aria-label="Нравится"></button>
+            <button class="photo__like" type="button" aria-label="Нравится"></button>
         </article>
     </template>
 

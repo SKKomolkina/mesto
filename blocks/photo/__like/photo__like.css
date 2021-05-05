@@ -1,4 +1,4 @@
-.photo__icon {
+.photo__like {
     min-width: 22px;
     min-height: 19px;
     margin: 0;
@@ -13,6 +13,6 @@
     cursor: pointer;
 }
 
-.photo__icon:hover {
+.photo__like:hover {
     opacity: 0.5;
 }
