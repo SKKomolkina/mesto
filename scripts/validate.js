@@ -44,7 +44,7 @@ const hasInvalidInput = (inputList) => {
 
 const toggleButtonState = (buttonElement, inputList) => {
 
-    if (hasInvalidInput(inputList) || (inputList.value === 0)) {
+    if (hasInvalidInput(inputList)) {
         buttonElement.disabled = true;
     } else {
         buttonElement.disabled = false;
@@ -79,15 +79,11 @@ const enableValidation = ({ formSelector, ...restConfig }) => {
             evt.preventDefault();
         });
         setEventListeners(formElement, restConfig);
-        
     });
-
-}
-
-const clearErrorElements = (formElement) => {
-    formElement.forEach(input => hideInputError(input));
+    
 }
 
 
 
-enableValidation(config);
+
+
