@@ -22,6 +22,9 @@ const popupPhotoTitleInput = popupPhoto.querySelector('.popup__input_type_title'
 const popupPhotoPhotoInput = popupPhoto.querySelector('.popup__input_type_image'); // форма ссылки 
 
 
+const form = document.querySelectorAll('.popup__form');
+// const input = document.querySelectorAll('popup__input');
+
 /////////fullphoto//////////
 const photoTemplate = document.querySelector('#photo-template'); // шаблон фото карточки
 const photosContainer = document.querySelector('.photos'); // секция всех фото
@@ -64,6 +67,7 @@ const initialCards = [
 ];
 // массив фото
 
+
 const like = (evt) => {
     evt.target.classList.toggle('photo__like_active');
 }
@@ -74,8 +78,16 @@ const remove = (evt) => {
 }
 // удаляем фото
 
+const clearInputs = () => {
+    form.forEach((input => {
+        input.reset();
+    }));
+}
+//очищение полей ввода
+
 function openPopup(openedPopup) {
     openedPopup.classList.add('popup_opened');
+    clearInputs(form);
 }
 // открытие попапа
 
