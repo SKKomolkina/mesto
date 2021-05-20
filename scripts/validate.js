@@ -1,13 +1,3 @@
-const config = {
-    formSelector: '.popup__form',
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__button',
-    inactiveButtonClass: 'popup__button_disabled',
-    inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__error_visible'
-};
-
-
 const hideInputError = (formElement, inputElement, config) => {
     const { inputErrorClass, errorClass } = config;
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
@@ -16,7 +6,7 @@ const hideInputError = (formElement, inputElement, config) => {
     errorElement.classList.remove(errorClass);
     errorElement.textContent = '';
 }
-
+//спрятать ошибку
 
 const showInputError = (formElement, inputElement, config) => {
     const { inputErrorClass, errorClass } = config;
@@ -26,7 +16,7 @@ const showInputError = (formElement, inputElement, config) => {
     errorElement.classList.add(errorClass);
     errorElement.textContent = inputElement.validationMessage;
 }
-
+//показать ошибку
 
 const checkInputValidity = (formElement, inputElement) => {
     if (inputElement.validity.valid) {
@@ -41,18 +31,16 @@ const hasInvalidInput = (inputList) => {
     return inputList.some((inputElement => !inputElement.validity.valid));
 }
 
-
 const toggleButtonState = (buttonElement, inputList) => {
-
     if (hasInvalidInput(inputList)) {
         buttonElement.disabled = true;
     } else {
         buttonElement.disabled = false;
     }
 }
+//переключение кнопки submit
 
-
-const setEventListeners = (formElement) => {
+const setEventListeners = (formElement, config) => {
     const { inputSelector, submitButtonSelector, ...restConfig } = config;
     // formElement.addEventListener('submit', (evt) => {
     //     evt.preventDefault();
@@ -69,24 +57,26 @@ const setEventListeners = (formElement) => {
         });
     });
 }
+//set listener on button & inputs
 
 
-const enableValidation = ({ formSelector, ...restConfig }) => {
+function clearErrorElements(formList) {
+    const {inputSelector} = config;
+    formList.forEach(formElement => {
+      const inputList = Array.from(formElement.querySelectorAll(inputSelector));
+      inputList.forEach(inputElement => {
+        hideInputError(formElement, inputElement, config);
+      })
+    })
+}
+//clear error inputs
+
+const enableValidation = (config) => {
+    const { formSelector, ...restConfig } = config;
     const formList = Array.from(document.querySelectorAll(formSelector));
 
     formList.forEach((formElement) => {
-        formElement.addEventListener('submit', (evt) => {
-            evt.preventDefault();
-        });
         setEventListeners(formElement, restConfig);
-    });
-    
+        });
 }
-
-const clearErrorElements = (formList, formElement) => {
-    hideInputError(formList, formElement,);
-    toggleButtonState(formList);
-}
-
-
-
+//inputs validation

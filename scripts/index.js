@@ -1,3 +1,16 @@
+//////////////config////////////////////
+const config = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button',
+    inactiveButtonClass: 'popup__button_disabled',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__error_visible'
+};
+
+enableValidation(config);
+
+const formList = document.querySelectorAll('.popup__form');
 /////////////POPUP PROFILE/////////////
 const popupProfile = document.querySelector('.popup-profile'); // POPUP редактирования
 
@@ -85,9 +98,9 @@ const remove = (evt) => {
 // удаляем фото
 
 const clearInputs = () => {
-    const inputForm = document.querySelectorAll('.popup__form');
-    const inputFormArr = Array.from(inputForm);
-    inputFormArr.forEach((item => {
+    const formElement = document.querySelectorAll('.popup__form');
+    const formElementArr = Array.from(formElement);
+    formElementArr.forEach((item => {
         item.reset();
     }));
 }
@@ -166,9 +179,8 @@ popupProfile.addEventListener('submit', (evt) => {
 popupProfileOpenButton.addEventListener('click', () => {
     popupProfileNameInput.value = popupProfileName.textContent;
     popupProfileJobInput.value = popupProfileJob.textContent;
-
+    clearErrorElements(formList);
     openPopup(popupProfile);
-    clearErrorElements(popupProfileForm, popupProfileJobInput, popupProfileNameInput);
 }); 
 // открыть редактирование
 
@@ -178,8 +190,8 @@ popupProfileCloseButton.addEventListener('click', () => {
 // закрыть ред.
 
 popupPhotoOpenButton.addEventListener('click', () => {
+    clearErrorElements(formList);
     openPopup(popupPhoto);
-    clearErrorElements(popupPhotoForm, popupPhotoPhotoInput, popupPhotoTitleInput);
 }); 
 // открыть доб. фото
 
@@ -214,4 +226,4 @@ popupProfile.addEventListener('click', closeWithClick);
 popupPhoto.addEventListener('click', closeWithClick);
 popupFullPhoto.addEventListener('click', closeWithClick);
 
-enableValidation(config);
+
