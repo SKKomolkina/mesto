@@ -83,7 +83,10 @@ const enableValidation = ({ formSelector, ...restConfig }) => {
     
 }
 
-
+const clearErrorElements = (formList, formElement) => {
+    hideInputError(formList, formElement,);
+    toggleButtonState(formList);
+}
 
 
 

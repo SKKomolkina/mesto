@@ -7,8 +7,8 @@ const popupProfileCloseButton = popupProfile.querySelector('.popup__cross_btn_cl
 const popupProfileForm = popupProfile.querySelector('.popup__form_profile'); // форма popup
 const popupProfileName = document.querySelector('.profile__name'); // отображение имени на гл.стр.
 const popupProfileJob = document.querySelector('.profile__about'); // отображение деятельности на гл.стр.
-const popupProfileNameInput = popupProfile.querySelector('.popup__input_type_name'); // ввод имени
-const popupProfileJobInput = popupProfile.querySelector('.popup__input_type_about'); // ввод деятельности
+const popupProfileNameInput = popupProfile.querySelector('#popup__input_type_name'); // ввод имени
+const popupProfileJobInput = popupProfile.querySelector('#popup__input_type_about'); // ввод деятельности
 
 
 /////////////POPUP PHOTO/////////////
@@ -18,8 +18,9 @@ const popupPhotoOpenButton = document.querySelector('.profile__btn-add'); // к�
 const popupPhotoCloseButton = popupPhoto.querySelector('.popup__cross_btn_close-photo'); // кнопка "крестик", закрыть фото доб.
 
 const popupPhotoForm = popupPhoto.querySelector('.popup__form_photo'); // форма popup
-const popupPhotoTitleInput = popupPhoto.querySelector('.popup__input_type_title'); // форма ввода заголовка
-const popupPhotoPhotoInput = popupPhoto.querySelector('.popup__input_type_image'); // форма ссылки 
+const popupPhotoTitleInput = popupPhoto.querySelector('#popup__input_type_title'); // форма ввода заголовка
+const popupPhotoPhotoInput = popupPhoto.querySelector('#popup__input_type_image'); // форма ссылки 
+
 
 
 // const formList = document.querySelector('.popup__form');
@@ -88,7 +89,6 @@ const clearInputs = () => {
     const inputFormArr = Array.from(inputForm);
     inputFormArr.forEach((item => {
         item.reset();
-        hideInputError();
     }));
 }
 //очищение полей ввода
@@ -168,6 +168,7 @@ popupProfileOpenButton.addEventListener('click', () => {
     popupProfileJobInput.value = popupProfileJob.textContent;
 
     openPopup(popupProfile);
+    clearErrorElements(popupProfileForm, popupProfileJobInput, popupProfileNameInput);
 }); 
 // открыть редактирование
 
@@ -178,6 +179,7 @@ popupProfileCloseButton.addEventListener('click', () => {
 
 popupPhotoOpenButton.addEventListener('click', () => {
     openPopup(popupPhoto);
+    clearErrorElements(popupPhotoForm, popupPhotoPhotoInput, popupPhotoTitleInput);
 }); 
 // открыть доб. фото
 
@@ -205,10 +207,11 @@ popupFullPhotoCloseButton.addEventListener('click', () => {
 }); 
 // закрыть просмотр фото
 
-const popup = document.querySelectorAll('popup_opened');
+// const popup = document.querySelectorAll('popup_opened');
 
 document.addEventListener('keydown', closeWithEsc);
 popupProfile.addEventListener('click', closeWithClick);
 popupPhoto.addEventListener('click', closeWithClick);
 popupFullPhoto.addEventListener('click', closeWithClick);
+
 enableValidation(config);
