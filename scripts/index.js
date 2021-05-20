@@ -209,7 +209,7 @@ popupPhotoForm.addEventListener('submit', (evt) => {
 
     photosContainer.prepend(newCard);
 
-    popupPhotoForm.reset()
+    // popupPhotoForm.reset()
     closePopup(popupPhoto);
 }); 
 // форма добавления фото
