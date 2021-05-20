@@ -7,8 +7,8 @@ const popupProfileCloseButton = popupProfile.querySelector('.popup__cross_btn_cl
 const popupProfileForm = popupProfile.querySelector('.popup__form_profile'); // форма popup
 const popupProfileName = document.querySelector('.profile__name'); // отображение имени на гл.стр.
 const popupProfileJob = document.querySelector('.profile__about'); // отображение деятельности на гл.стр.
-const popupProfileNameInput = popupProfile.querySelector('.popup__input_type_name'); // ввод имени
-const popupProfileJobInput = popupProfile.querySelector('.popup__input_type_about'); // ввод деятельности
+const popupProfileNameInput = popupProfile.querySelector('#popup__input_type_name'); // ввод имени
+const popupProfileJobInput = popupProfile.querySelector('#popup__input_type_about'); // ввод деятельности
 
 
 /////////////POPUP PHOTO/////////////
@@ -18,10 +18,19 @@ const popupPhotoOpenButton = document.querySelector('.profile__btn-add'); // к�
 const popupPhotoCloseButton = popupPhoto.querySelector('.popup__cross_btn_close-photo'); // кнопка "крестик", закрыть фото доб.
 
 const popupPhotoForm = popupPhoto.querySelector('.popup__form_photo'); // форма popup
-const popupPhotoTitleInput = popupPhoto.querySelector('.popup__input_type_title'); // форма ввода заголовка
-const popupPhotoPhotoInput = popupPhoto.querySelector('.popup__input_type_image'); // форма ссылки 
+const popupPhotoTitleInput = popupPhoto.querySelector('#popup__input_type_title'); // форма ввода заголовка
+const popupPhotoPhotoInput = popupPhoto.querySelector('#popup__input_type_image'); // форма ссылки 
 
 
+
+// const formList = document.querySelector('.popup__form');
+// const input = formList.querySelectorAll('.popup__input');
+// const errors = formList.querySelectorAll('.popup__error');
+
+// const clearErrorElements = (formList, inputs) => {
+//     Array.from(formList);
+//     formList.forEach(inputs => hideInputError(formList, inputs));
+// }
 /////////fullphoto//////////
 const photoTemplate = document.querySelector('#photo-template'); // шаблон фото карточки
 const photosContainer = document.querySelector('.photos'); // секция всех фото
@@ -64,6 +73,7 @@ const initialCards = [
 ];
 // массив фото
 
+
 const like = (evt) => {
     evt.target.classList.toggle('photo__like_active');
 }
@@ -74,15 +84,44 @@ const remove = (evt) => {
 }
 // удаляем фото
 
+const clearInputs = () => {
+    const inputForm = document.querySelectorAll('.popup__form');
+    const inputFormArr = Array.from(inputForm);
+    inputFormArr.forEach((item => {
+        item.reset();
+    }));
+}
+//очищение полей ввода
+
 function openPopup(openedPopup) {
     openedPopup.classList.add('popup_opened');
+    clearInputs();
+    document.addEventListener('keydown', closeWithEsc);
+    
 }
 // открытие попапа
 
 function closePopup(closedPopup) {
     closedPopup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', closeWithEsc);
 }
 //закрытие попапа
+
+function closeWithEsc (evt) {
+    if (evt.key === "Escape") {
+        const popup = document.querySelector('.popup_opened');
+        closePopup(popup);
+    }
+}
+// закрытие Esc
+
+const closeWithClick = (evt) => {
+    const popup = document.querySelector('.popup_opened');
+    if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__button-close')) {
+      closePopup(popup)
+   }
+  }
+// закрытие мышью
 
 function createCard(photo, title) {
     const newPhotoCard = photoTemplate.content.querySelector('.photo').cloneNode(true); // clone 
@@ -129,6 +168,7 @@ popupProfileOpenButton.addEventListener('click', () => {
     popupProfileJobInput.value = popupProfileJob.textContent;
 
     openPopup(popupProfile);
+    clearErrorElements(popupProfileForm, popupProfileJobInput, popupProfileNameInput);
 }); 
 // открыть редактирование
 
@@ -139,6 +179,7 @@ popupProfileCloseButton.addEventListener('click', () => {
 
 popupPhotoOpenButton.addEventListener('click', () => {
     openPopup(popupPhoto);
+    clearErrorElements(popupPhotoForm, popupPhotoPhotoInput, popupPhotoTitleInput);
 }); 
 // открыть доб. фото
 
@@ -165,3 +206,12 @@ popupFullPhotoCloseButton.addEventListener('click', () => {
     closePopup(popupFullPhoto);
 }); 
 // закрыть просмотр фото
+
+// const popup = document.querySelectorAll('popup_opened');
+
+document.addEventListener('keydown', closeWithEsc);
+popupProfile.addEventListener('click', closeWithClick);
+popupPhoto.addEventListener('click', closeWithClick);
+popupFullPhoto.addEventListener('click', closeWithClick);
+
+enableValidation(config);
