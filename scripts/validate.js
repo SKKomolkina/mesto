@@ -42,9 +42,9 @@ const toggleButtonState = (buttonElement, inputList) => {
 
 const setEventListeners = (formElement, config) => {
     const { inputSelector, submitButtonSelector, ...restConfig } = config;
-    // formElement.addEventListener('submit', (evt) => {
-    //     evt.preventDefault();
-    // });
+    formElement.addEventListener('submit', (evt) => {
+        evt.preventDefault();
+    });
     const inputList = Array.from(formElement.querySelectorAll(inputSelector));
     const buttonElement = formElement.querySelector(submitButtonSelector);
     toggleButtonState(buttonElement, inputList);
@@ -66,6 +66,7 @@ function clearErrorElements(formList) {
       const inputList = Array.from(formElement.querySelectorAll(inputSelector));
       inputList.forEach(inputElement => {
         hideInputError(formElement, inputElement, config);
+        // toggleButtonState()
       })
     })
 }
