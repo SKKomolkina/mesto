@@ -23,6 +23,7 @@ const popupProfileJob = document.querySelector('.profile__about'); // отобр
 const popupProfileNameInput = popupProfile.querySelector('#popup__input_type_name'); // ввод имени
 const popupProfileJobInput = popupProfile.querySelector('#popup__input_type_about'); // ввод деятельности
 
+// const submitButtonProfilePopup = popupProfile.document.querySelector('.popup__save-profile');
 
 /////////////POPUP PHOTO/////////////
 const popupPhoto = document.querySelector('.popup-photo'); // POPUP доб. фото
@@ -34,11 +35,8 @@ const popupPhotoForm = popupPhoto.querySelector('.popup__form_photo'); // фор
 const popupPhotoTitleInput = popupPhoto.querySelector('#popup__input_type_title'); // форма ввода заголовка
 const popupPhotoPhotoInput = popupPhoto.querySelector('#popup__input_type_image'); // форма ссылки 
 
+// const submitButtonPhotoPopup = popupPhoto.querySelector('.popup__save-photo');
 
-
-// const formList = document.querySelector('.popup__form');
-// const input = formList.querySelectorAll('.popup__input');
-// const errors = formList.querySelectorAll('.popup__error');
 
 // const clearErrorElements = (formList, inputs) => {
 //     Array.from(formList);
@@ -108,7 +106,6 @@ const clearInputs = () => {
 
 function openPopup(openedPopup) {
     openedPopup.classList.add('popup_opened');
-    clearInputs();
     document.addEventListener('keydown', closeWithEsc);
     
 }
@@ -191,6 +188,7 @@ popupProfileCloseButton.addEventListener('click', () => {
 
 popupPhotoOpenButton.addEventListener('click', () => {
     clearErrorElements(formList);
+    clearInputs();
     openPopup(popupPhoto);
 }); 
 // открыть доб. фото
@@ -221,9 +219,8 @@ popupFullPhotoCloseButton.addEventListener('click', () => {
 
 // const popup = document.querySelectorAll('popup_opened');
 
-document.addEventListener('keydown', closeWithEsc);
-popupProfile.addEventListener('click', closeWithClick);
-popupPhoto.addEventListener('click', closeWithClick);
-popupFullPhoto.addEventListener('click', closeWithClick);
+popupProfile.addEventListener('mousedown', closeWithClick);
+popupPhoto.addEventListener('mousedown', closeWithClick);
+popupFullPhoto.addEventListener('mousedown', closeWithClick);
 
 
