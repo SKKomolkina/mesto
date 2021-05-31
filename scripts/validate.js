@@ -72,7 +72,7 @@ const setEventListeners = (formElement, config) => {
         });
     });
 }
-//set listener on button & inputs
+//set listner on button & inputs
 
 
 function clearErrorElements(formList) {
