@@ -30,8 +30,8 @@ export default class FormValidator {
     _showInputError = (inputElement) => {
         const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
 
-        inputElement.classList.add(this._inputErrorClass);
-        errorElement.classList.add(this._errorClass);
+        inputElement.classList.add(this._config.inputErrorClass);
+        errorElement.classList.add(this._config.errorClass);
         errorElement.textContent = inputElement.validationMessage;
     }
     //показать ошибку инпутов
@@ -54,11 +54,13 @@ export default class FormValidator {
         this._buttonElement.disabled = false;
         this._buttonElement.classList.remove(this._config.inactiveButtonClass);
     }
+    //активная кнопка
 
     _setDisableButton = () => {
         this._buttonElement.disabled = true;
         this._buttonElement.classList.add(this._config.inactiveButtonClass);
     }
+    //неактивная кнопка
 
     toggleButtonState() {
         if (this._hasInputValidity()) {
@@ -67,19 +69,19 @@ export default class FormValidator {
             this._setAbleButton(this._buttonElement);
         }
     }
-
+    //переключение кнопки
 
     clearErrorElements = () => {
         this._inputList.forEach(inputElement => {
             this._hideInputError(inputElement);
         });
     }
+    //очистка 
 
     enableValidation() {
         this._formElement.addEventListener('submit', (evt) => {
             evt.preventDefault();
         });
-
         this._setEventListeners();
     }
 }
