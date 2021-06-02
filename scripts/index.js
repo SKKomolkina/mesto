@@ -174,7 +174,7 @@ popupPhotoCloseButton.addEventListener('click', () => {
 // закрыть доб. фото
 
 function createCard(link, name, template, openedPopup) {
-    const card = new Card(link, name, template, openPopup);
+    const card = new Card(link, name, template, openedPopup);
     return card.generateCard();
 }
 //создание карточки
