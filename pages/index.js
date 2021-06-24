@@ -20,8 +20,7 @@ function createCard(item) {
     const card = new Card(item, '#photo-template', () => {
         popupWithImage.open(item);
     });
-    const photoCard = card.generateCard();
-    return photoCard;
+    return card.generateCard();
 }
 
 ////////создание начального массива карточек////////
@@ -38,6 +37,7 @@ cardsSection.renderAll();
 const popupWithImage = new PopupWithImage({
     popupSelector: selectors.popupPreview
 });
+
 popupWithImage.setEventListeners();
 
 ////////отображение данных о пользователе////////
@@ -72,10 +72,10 @@ addButton.addEventListener('click', () => {
 
 ////////ред. профиля////////
 editButton.addEventListener('click', () => {
-    const { name: name, info: info } = userInfo.getUserInfo();
+    const { name: name, about: about } = userInfo.getUserInfo();
 
     name.textContent = popupProfileNameInput.value;
-    info.textContent = popupProfileJobInput.value;
+    about.textContent = popupProfileJobInput.value;
 
     profilePopup.open();
 });

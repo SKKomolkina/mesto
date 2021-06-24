@@ -10,6 +10,7 @@ export const formProfile = document.querySelector('.popup__form_profile'); //ф�
 export const formPhoto = document.querySelector('.popup__form_photo'); //форма доб. фото
 
 export const photoTemplate = document.querySelector('#photo-template');
+
 /////////SELECTORS/////////
 export const selectors = {
     popupProfile: '.popup-profile',
