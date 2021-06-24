@@ -1,6 +1,6 @@
 class FormValidator {
     constructor(config, formElement) {
-        this._formElement = formElement;
+        this._formElement = document.querySelector(formElement);
 
         this._inputSelector = config.inputSelector;
         this._inputErrorClass = config.inputErrorClass;
@@ -19,11 +19,11 @@ class FormValidator {
         this._inputList.forEach((inputElement) => {
             inputElement.addEventListener('input', () => {
                 this._checkInputValidity(inputElement);
-                this._toggleButtonState();
+                this.toggleButtonState();
             });
         });
 
-        this._toggleButtonState(this._submitButton);
+        this.toggleButtonState(this._submitButton);
     }
     //set listner on button & inputs
 
@@ -71,7 +71,7 @@ class FormValidator {
     }
     //неактивная кнопка
 
-    _toggleButtonState() {
+    toggleButtonState() {
         if (this._hasInputValidity()) {
             this.setDisableButton(this._buttonElement);
         } else {
@@ -80,7 +80,7 @@ class FormValidator {
     }
     //переключение кнопки
 
-    _clearErrorElements = () => {
+    clearErrorElements = () => {
         this._inputList.forEach(inputElement => {
             this._hideInputError(inputElement);
         });

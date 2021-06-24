@@ -1,85 +1,102 @@
+import {
+    addButton,
+    editButton,
+    popupProfileNameInput,
+    popupProfileJobInput,
+    selectors,
+    initialCards,
+    config,
+} from '../utils/constants.js';
 
 import Section from '../components/Section.js';
 import Card from '../components/Card.js';
-//import FormValidator from '../components/FormValidator.js';
-
-import { 
-    initialCards,
-    popupProfileName,
-    popupProfileJob,
-    formProfile,
-    formPhoto,
-    config,
-    popupPhotoOpenButton,
-    popupProfileOpenButton
-} from '../utils/constants.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import UserInfo from '../components/UserInfo.js';
 import FormValidator from '../components/FormValidator.js';
 
-
-/////////создание начального массива карточек////////
-const cardsSection = new Section({
-    renderer: (initialCards) => {
-    cardsSection.appendItem(createCard(initialCards));
-    }
-}, '.photos');
-
-const createCard = (cardData) => {
-    const card = new Card(cardData, '#photo-template', () => {
-        popupWithImage.open({ link: cardData.link, name: cardData.name });
+////////добавление фото-карточки////////
+function createCard(item) {
+    const card = new Card(item, '#photo-template', () => {
+        popupWithImage.open(item);
     });
-    return card.generateCard();
+    const photoCard = card.generateCard();
+    return photoCard;
 }
-//добавление фото-карточки
 
-cardsSection.rendererAll(initialCards);
+////////создание начального массива карточек////////
+const cardsSection = new Section({
+    items: initialCards,
+    renderer: (item) => {
+        cardsSection.appendItem(createCard(item));
+    }
+}, selectors.photosSection);
 
-const popupWithImage = new PopupWithImage('.popup_full_photo');
+cardsSection.renderAll();
+
+////////фото-превью////////
+const popupWithImage = new PopupWithImage({
+    popupSelector: selectors.popupPreview
+});
 popupWithImage.setEventListeners();
 
+////////отображение данных о пользователе////////
 const userInfo = new UserInfo({
-    nameSelector: '.profile__name', 
-    infoSelector: '.profile__about'
+    nameSelector: selectors.userName, 
+    infoSelector: selectors.userInfo
 });
 
-const popupProfile = new PopupWithForm(
-    '.popup-profile', (evt) => {
-    evt.preventDefault();
-    const { name, title } = popupProfile._getInputValues();
-    userInfo.setUserInfo(name, title);
-    popupProfile.close();
+////////попап доб.фото////////
+const photoPopup = new PopupWithForm({
+    popupSelector: selectors.popupPhoto
+}, item => cardsSection.prependItem(createCard(item)));
+
+const photoPopupValidation = new FormValidator(config, '.popup__form_photo');
+photoPopupValidation.enableValidation();
+
+////////попап ред.профиля////////
+const profilePopup = new PopupWithForm({
+    popupSelector: selectors.popupProfile
+}, inputs => userInfo.setUserInfo(inputs));
+
+const profilePopupValidation = new FormValidator(config, '.popup__form_profile');
+profilePopupValidation.enableValidation();
+
+////////добавить фото////////
+addButton.addEventListener('click', () => {
+    photoPopupValidation.clearErrorElements();
+    photoPopupValidation.toggleButtonState();
+
+    photoPopup.open();
 });
 
-const popupPhoto = new PopupWithForm(
-    '.popup-photo', (evt) => {
-    evt.preventDefault();
-    const { cardData } = popupPhoto._getInputValues();
-    const card = createCard()
-    cardsSection.addItem(card.generateCard());
-    popupPhoto.close();
+////////ред. профиля////////
+editButton.addEventListener('click', () => {
+    const { name: name, info: info } = userInfo.getUserInfo();
+
+    name.textContent = popupProfileNameInput.value;
+    info.textContent = popupProfileJobInput.value;
+
+    profilePopup.open();
 });
-
-
 
 /////////FORM VALIDATION/////////
-const formEditProfile = new FormValidator(config, formProfile);
-formEditProfile.enableValidation(); //валидация ред. профиля
+// const formEditProfile = new FormValidator(config, formProfile);
+// formEditProfile.enableValidation(); //валидация ред. профиля
 
-const formEditPhoto = new FormValidator(config, formPhoto);
-formEditPhoto.enableValidation(); //валидация доб.фото
+// const formEditPhoto = new FormValidator(config, formPhoto);
+// formEditPhoto.enableValidation(); //валидация доб.фото
 
-popupPhotoOpenButton.addEventListener('click', () => {
-    popupPhoto.open();
-});
+// popupPhotoOpenButton.addEventListener('click', () => {
+//     popupPhoto.open();
+// });
 
-popupProfileOpenButton.addEventListener('click', () => {
-    const newUserInfo = userInfo.getUserInfo();
-    popupProfileName.value = newUserInfo.textContent;
-    popupProfileJob.value = newUserInfo.textContent;
-    popupProfile.open();
-});
+// popupProfileOpenButton.addEventListener('click', () => {
+//     const newUserInfo = userInfo.getUserInfo();
+//     popupProfileName.value = newUserInfo.textContent;
+//     popupProfileJob.value = newUserInfo.textContent;
+//     popupProfile.open();
+// });
 
 
 

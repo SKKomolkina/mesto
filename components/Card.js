@@ -2,28 +2,26 @@ import Popup from './Popup.js';
 
 export default class Card {
     constructor(data, templateSelector, handleCardClick) {
-        this._data = data;
-        this._templateSelector = templateSelector;
+        this._name = data.name;
+        this._link = data.link;
+
+        this._templateSelector = document.querySelector(templateSelector).content;
+        
         this._handleCardClick = handleCardClick;
-
-        const cardTemplate = document.querySelector(this._templateSelector).content;
-        this._cardElement = cardTemplate.cloneNode(true);
-
-        this._getTemplate();
-        this._setEventListeners();
     }
 
     _getTemplate() {
-        this._card = this._cardElement.querySelector('.photo');
+        const card = this._templateSelector.querySelector('.photo').cloneNode(true);
+        return card;
+    }
+
+    _getElements() {
+        this._cardElement = this._getTemplate();
+
         this._cardPhoto = this._cardElement.querySelector('.photo__image');
         this._cardTitle = this._cardElement.querySelector('.photo__title');
         this._likeButton = this._cardElement.querySelector('.photo__like');
         this._removeButton = this._cardElement.querySelector('.photo__trash');
-    }
-
-    _setEventListeners() {
-        this._likeButton.addEventListener('click', () => this._handleSetLike());
-        this._removeButton.addEventListener('click', () => this._handleRemoveCard());
     }
 
     _handleSetLike() {
@@ -31,13 +29,22 @@ export default class Card {
     }
 
     _handleRemoveCard() {
-        this._card.remove();
+        this._cardElement.remove();
     }
-    
+
+    _setEventListeners() {
+        this._likeButton.addEventListener('click', () => this._handleSetLike());
+        this._removeButton.addEventListener('click', () => this._handleRemoveCard());
+        this._cardPhoto.addEventListener('click', () => this._handleCardClick());
+    }
+
     generateCard() {
-        this._cardPhoto.src = this._data.link;
-        this._cardPhoto.alt = this._data.name;
-        this._cardTitle.textContent = this._data.name;
+        this._getElements();
+        this._setEventListeners();
+
+        this._cardPhoto.src = this._link;
+        this._cardPhoto.alt = this._name;
+        this._cardTitle.textContent = this._name;
 
         return this._cardElement;
     }
