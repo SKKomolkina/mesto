@@ -11,7 +11,10 @@ export default class UserInfo {
     //добавление на страницу полученных данных
 
     getUserInfo() {
-        this._userInfo = { name: this._name, about: this._about }
+        this._userInfo = { 
+            name: this._name.textContent, 
+            about: this._about.textContent
+        }
         return this._userInfo;
     }
     //получение и возврат данных пользователя

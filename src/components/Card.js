@@ -28,6 +28,7 @@ export default class Card {
 
     _handleRemoveCard() {
         this._cardElement.remove();
+        this._cardElement = null;
     }
 
     _setEventListeners() {

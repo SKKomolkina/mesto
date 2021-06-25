@@ -73,9 +73,9 @@ class FormValidator {
 
     toggleButtonState() {
         if (this._hasInputValidity()) {
-            this.setDisableButton(this._buttonElement);
+            this.setDisableButton(this._submitButton);
         } else {
-            this.setAbleButton(this._buttonElement);
+            this.setAbleButton(this._submitButton);
         }
     }
     //переключение кнопки
