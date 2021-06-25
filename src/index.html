@@ -11,14 +11,14 @@
 <body class="root">
 
     <header class="header">
-        <img class="logo header__logo" src="./images/logo.svg" alt="Логотип Mesto">
+        <img class="logo header__logo" src="<%=require('./images/logo.svg')%>" alt="Логотип Mesto">
     </header>
 
     <main>
 
         <section class="profile">
             <div class="profile__container">
-                <img src="./images/avatar.jpg" alt="Ваше фото" class="profile__photo">
+                <img src="<%=require('./images/avatar.jpg')%>" alt="Ваше фото" class="profile__photo">
                 <div class="profile__info">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
                     <button class="profile__btn-edit" type="button" value=""></button>
@@ -40,17 +40,18 @@
 
     <!-- //  POPUP_PROFILE-->
     <div class="popup popup-profile">
-        <button id="button-close" class="popup__cross popup__cross_btn_close-profile popup__button-close" type="button"></button>
+        <button class="button-close popup__cross popup__cross_btn_close-profile popup__button-close"
+            type="button"></button>
         <form id="popup__form" class="popup__form popup__form_profile" method="get" name="edit-form" novalidate>
 
             <h2 class="popup__title">Редактировать профиль</h2>
 
-            <input id="popup__input_type_name" class="popup__input popup__input_type_name" 
-            type="text" name="name" value="Жак-Ив Кусто" minlength="2" maxlength="40" required>
+            <input id="popup__input_type_name" class="popup__input popup__input_type_name" type="text" name="name"
+                value="Жак-Ив Кусто" minlength="2" maxlength="40" required>
             <span id="popup__input_type_name-error" class="popup__error"></span>
 
-            <input id="popup__input_type_about" class="popup__input popup__input_type_about" 
-            type="text" name="about" value="Исследователь океана" minlength="2" maxlength="200" required>
+            <input id="popup__input_type_about" class="popup__input popup__input_type_about" type="text" name="about"
+                value="Исследователь океана" minlength="2" maxlength="200" required>
             <span id="popup__input_type_about-error" class="popup__error"></span>
 
             <button class="popup__button popup__save popup__save-profile" type="submit">Сохранить</button>
@@ -59,18 +60,19 @@
 
     <!--// POPUP_photo-->
     <div class="popup popup-photo">
-        <button id="button-close button-close-photo" class="popup__cross popup__cross_btn_close-photo popup__button-close" type="button"></button>
+        <button 
+            class="button-close popup__cross popup__cross_btn_close-photo popup__button-close" type="button"></button>
         <form id="popup__form popup__form-photo" class="popup__form popup__form_photo" name="image-form" novalidate>
 
             <h2 class="popup__title">Новое место</h2>
 
-            <input id="popup__input_type_title" class="popup__input popup__input_type_title" type="text" 
-            name="name" value="" placeholder="Название" minlength="1" maxlength="30" required>
+            <input id="popup__input_type_title" class="popup__input popup__input_type_title" type="text" name="name"
+                value="" placeholder="Название" minlength="1" maxlength="30" required>
             <span id="popup__input_type_title-error" class="popup__error"></span>
 
-            <input id="popup__input_type_image" class="popup__input popup__input_type_image" type="url" name="link" value=""
-                placeholder="Ссылка на картинку" required>
-                <span id="popup__input_type_image-error" class="popup__error"></span>
+            <input id="popup__input_type_image" class="popup__input popup__input_type_image" type="url" name="link"
+                value="" placeholder="Ссылка на картинку" required>
+            <span id="popup__input_type_image-error" class="popup__error"></span>
 
             <button class="popup__button popup__save popup__save-photo" type="submit">Создать</button>
         </form>
@@ -79,7 +81,8 @@
     <!--// POPUP_FULL PHOTO-->
     <div class="popup popup_full_photo">
         <div class="popup__figure-flex">
-            <button id="button-close button-close-photo-full" class="popup__close popup__close_btn_close popup__button-close" type="button"></button>
+            <button 
+                class="button-close popup__close popup__close_btn_close popup__button-close" type="button"></button>
             <figure class="popup__container popup__container-image popup__container-image_open">
                 <img class="popup__image" src="#" alt="#">
                 <figcaption class="popup__caption"></figcaption>
@@ -99,8 +102,6 @@
         </article>
     </template>
 
-    <script type="module" src="./pages/index.js"></script>
-    
 </body>
 
 </html>

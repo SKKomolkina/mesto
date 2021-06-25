@@ -1,4 +1,4 @@
-import './pages/index.css';
+import './index.css';
 
 import {
     addButton,
@@ -8,14 +8,14 @@ import {
     selectors,
     initialCards,
     config,
-} from './utils/constants.js';
+} from '../utils/constants.js';
 
-import Section from './components/Section.js';
-import Card from './components/Card.js';
-import PopupWithForm from './components/PopupWithForm.js';
-import PopupWithImage from './components/PopupWithImage.js';
-import UserInfo from './components/UserInfo.js';
-import FormValidator from './components/FormValidator.js';
+import Section from '../components/Section.js';
+import Card from '../components/Card.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import UserInfo from '../components/UserInfo.js';
+import FormValidator from '../components/FormValidator.js';
 
 ////////добавление фото-карточки////////
 function createCard(item) {
@@ -44,7 +44,7 @@ popupWithImage.setEventListeners();
 
 ////////отображение данных о пользователе////////
 const userInfo = new UserInfo({
-    nameSelector: selectors.userName, 
+    nameSelector: selectors.userName,
     infoSelector: selectors.userInfo
 });
 
@@ -168,7 +168,7 @@ editButton.addEventListener('click', () => {
 
 //     popupProfileName.textContent = popupProfileNameInput.value;
 //     popupProfileJob.textContent = popupProfileJobInput.value;
-    
+
 //     // closePopup(popupProfile);
 // }); 
 // // сохранить имя в профиль
@@ -204,7 +204,7 @@ editButton.addEventListener('click', () => {
 //     }, '.photo');
 //     cardsSection.addItem(card.generateCard());
 //     //photosContainer.prepend(createCard(popupPhotoPhotoInput.value, popupPhotoTitleInput.value, '#photo-template', openPopup));
-    
+
 //     popupPhotoForm.reset();
 
 //     // closePopup(popupPhoto);
