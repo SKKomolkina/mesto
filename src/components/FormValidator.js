@@ -19,11 +19,11 @@ class FormValidator {
         this._inputList.forEach((inputElement) => {
             inputElement.addEventListener('input', () => {
                 this._checkInputValidity(inputElement);
-                this.toggleButtonState();
+                this._toggleButtonState();
             });
+            this._toggleButtonState(this._submitButton);
         });
 
-        this.toggleButtonState(this._submitButton);
     }
     //set listner on button & inputs
 
@@ -71,7 +71,7 @@ class FormValidator {
     }
     //неактивная кнопка
 
-    toggleButtonState() {
+    _toggleButtonState() {
         if (this._hasInputValidity()) {
             this.setDisableButton(this._submitButton);
         } else {
@@ -84,13 +84,11 @@ class FormValidator {
         this._inputList.forEach(inputElement => {
             this._hideInputError(inputElement);
         });
+        this._toggleButtonState();
     }
     //очистка 
 
     enableValidation() {
-        this._formElement.addEventListener('submit', (evt) => {
-            evt.preventDefault();
-        });
         this._setEventListeners();
     }
 }

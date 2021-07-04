@@ -8,16 +8,22 @@ export const popupProfileJobInput = document.querySelector('#popup__input_type_a
 
 export const formProfile = document.querySelector('.popup__form_profile'); //форма ред. профиля
 export const formPhoto = document.querySelector('.popup__form_photo'); //форма доб. фото
+export const formDelete = document.querySelector('.popup__form_delete');
 
 export const photoTemplate = document.querySelector('#photo-template');
+
+export const avatarContainer = document.querySelector('.profile__photo-wrapper');
 
 /////////SELECTORS/////////
 export const selectors = {
     popupProfile: '.popup-profile',
     popupPhoto: '.popup-photo',
     popupPreview: '.popup_full_photo',
+    popupDelete: '.popup-delete',
+    popupAvatar: '.popup-avatar',
     userName: '.profile__name',
     userInfo: '.profile__about',
+    userAvatar: '.profile__photo',
     photosSection: '.photos',
 }
 

@@ -1,10 +1,8 @@
 .photo__like {
-    min-width: 22px;
-    min-height: 19px;
+    width: 22px;
+    height: 19px;
     margin: 0;
-    margin-bottom: 30px;
-    margin-right: 30px;
-    margin-left: 14px;
+    margin-bottom: 3px;
     padding: 0;
     background-image: url(../../../images/heart.svg);
     background-size: cover;

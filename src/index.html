@@ -18,7 +18,9 @@
 
         <section class="profile">
             <div class="profile__container">
-                <img src="<%=require('./images/avatar.jpg')%>" alt="Ваше фото" class="profile__photo">
+                <div class="profile__photo-wrapper">
+                    <img name="avatar" src="<%=require('./images/avatar.jpg')%>" alt="Ваше фото" class="profile__photo">
+                </div>
                 <div class="profile__info">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
                     <button class="profile__btn-edit" type="button" value=""></button>
@@ -60,8 +62,8 @@
 
     <!--// POPUP_photo-->
     <div class="popup popup-photo">
-        <button 
-            class="button-close popup__cross popup__cross_btn_close-photo popup__button-close" type="button"></button>
+        <button class="button-close popup__cross popup__cross_btn_close-photo popup__button-close"
+            type="button"></button>
         <form id="popup__form popup__form-photo" class="popup__form popup__form_photo" name="image-form" novalidate>
 
             <h2 class="popup__title">Новое место</h2>
@@ -81,8 +83,7 @@
     <!--// POPUP_FULL PHOTO-->
     <div class="popup popup_full_photo">
         <div class="popup__figure-flex">
-            <button 
-                class="button-close popup__close popup__close_btn_close popup__button-close" type="button"></button>
+            <button class="button-close popup__close popup__close_btn_close popup__button-close" type="button"></button>
             <figure class="popup__container popup__container-image popup__container-image_open">
                 <img class="popup__image" src="#" alt="#">
                 <figcaption class="popup__caption"></figcaption>
@@ -90,15 +91,41 @@
         </div>
     </div>
 
+        <!--// POPUP_DELETE-CARD-->
+        <div class="popup popup-delete">
+            <button class="button-close popup__cross popup__cross_btn_close-photo popup__button-close"
+                type="button"></button>
+            <form class="popup__form popup__form_delete">
+                <h2 class="popup__title popup__title-delete">Вы уверены?</h2>
+                <button class="popup__button popup__save popup__save-delete" type="submit">Да</button>
+            </form>
+        </div>
+
+        <div class="popup popup-avatar">
+            <button class="button-close popup__cross popup__cross_btn_close-photo popup__button-close" type="button"></button>
+            <form class="popup__form popup__form_avatar">
+                <h2 class="popup__title">Обновить аватар</h2>
+
+                <input id="popup__input_type_avatar" class="popup__input popup__input_type_avatar" type="url" name="link"
+                value="" placeholder="Ссылка на картинку" type="url" required>
+                <span id="popup__input_type_avatar-error" class="popup__error"></span>
+
+                <button class="popup__button popup__save" type="submit">Сохранить</button>
+            </form>
+        </div>
+
     <!--// PHOTO_TEMPLATE-->
     <template id="photo-template">
         <article class="photo">
             <div class="photo__image-container">
                 <button class="photo__trash" aria-label="Удалить" type="button"></button>
-                <img class="photo__image photo__image_open" src="#" alt="#">
+                <img class="photo__image photo__image_open" src="#" alt="#" name="name">
             </div>
-            <h3 class="photo__title"></h3>
-            <button class="photo__like" type="button" aria-label="Нравится"></button>
+            <h3 class="photo__title" name="link"></h3>
+            <div class="photo__like-container">
+                <button class="photo__like" type="button" aria-label="Нравится"></button>
+                <p class="photo__like-counter"></p>
+            </div>
         </article>
     </template>
 
