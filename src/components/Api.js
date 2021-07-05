@@ -12,14 +12,14 @@ export default class Api {
         return fetch(`${this._url}/cards`, {
             headers: this._headers
         })
-            .then(res => this._chechResult(res));
+            .then(res => this._checkResult(res));
     }
 
     getUserData() {
         return fetch(`${this._url}/users/me`, {
             headers: this._headers
         })
-            .then(res => this._chechResult(res));
+            .then(res => this._checkResult(res));
     }
 
     editProfile(name, about) {
@@ -31,7 +31,7 @@ export default class Api {
                 about: about,
             })
         })
-            .then(res => this._chechResult(res));
+            .then(res => this._checkResult(res));
     }
 
     addCard(name, link) {
@@ -43,7 +43,7 @@ export default class Api {
                 link: link,
             })
         })
-            .then(res => this._chechResult(res))
+            .then(res => this._checkResult(res))
     }
 
     setLike(cardId) {
@@ -51,7 +51,7 @@ export default class Api {
             method: 'PUT',
             headers: this._headers,
         })
-            .then(res => this._chechResult(res));
+            .then(res => this._checkResult(res));
     }
 
     deleteLike(cardId) {
@@ -59,7 +59,7 @@ export default class Api {
             method: 'DELETE',
             headers: this._headers,
         })
-            .then(res => this._chechResult(res));
+            .then(res => this._checkResult(res));
     }
 
     deleteCard(cardId) {
@@ -67,7 +67,7 @@ export default class Api {
             method: 'DELETE',
             headers: this._headers,
         })
-            .then(res => this._chechResult(res));
+            .then(res => this._checkResult(res));
     }
 
     changeAvatar(avatarUrl) {
@@ -78,11 +78,11 @@ export default class Api {
                 avatar: avatarUrl,
             })
         })
-            .then(res => this._chechResult(res));
+            .then(res => this._checkResult(res));
     }
 
 
-    _chechResult(res) {
+    _checkResult(res) {
         if (res.ok) {
             return res.json();
         }

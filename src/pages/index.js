@@ -50,6 +50,7 @@ api.getData()
     .then((arg) => {
         const [dataUser, dataCards] = arg;
         userInfo.setUserInfo(dataUser);
+        userInfo.setAvatar(dataUser.avatar);
         userId = dataUser._id
         cardsSection.renderAll(dataCards);
     })
@@ -75,7 +76,10 @@ const formEditSubmit = (inputsValue) => {
             userInfo.setUserInfo(inputsValue);
             profilePopup.close();
         })
-        .catch(err => showError(err));
+        .catch(err => showError(err))
+        .finally(() => {
+            profilePopup.offLoadingButton();
+        });
 }
 
 //сабмит формы добавления фото
@@ -87,7 +91,10 @@ const formAddPhotoSubmit = (inputsValue) => {
             cardsSection.prependItem(createCard(data, userId, '#photo-template'));
             photoPopup.close();
         })
-        .catch(err => showError(err));
+        .catch(err => showError(err))
+        .finally(() => {
+            photoPopup.offLoadingButton();
+        })
 }
 
 //функция удаления карточки
@@ -110,7 +117,10 @@ const formChangeAvatar = (inputsValue) => {
             userInfo.setAvatar(inputsValue['link']);
             popupEditAvatar.close();
         })
-        .catch(err => showError(err));
+        .catch(err => showError(err))
+        .finally(() => {
+            popupEditAvatar.offLoadingButton();
+        })
 }
 
 //создание начального массива карточек
