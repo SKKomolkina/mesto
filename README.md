@@ -14,4 +14,4 @@
 * Адаптивная верстка
 * API
 
-https://skkomolkina.github.io/mesto/dist
+https://skkomolkina.github.io/mesto/src
