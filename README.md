@@ -12,5 +12,6 @@
 * CSS
 * JavaScript
 * Адаптивная верстка
+* API
 
-https://skkomolkina.github.io/mesto/src
+https://skkomolkina.github.io/mesto/dist
