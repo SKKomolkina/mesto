@@ -14,6 +14,5 @@
 * Адаптивная верстка
 * API
 
-permalink: /index.html
 
 https://skkomolkina.github.io/mesto
