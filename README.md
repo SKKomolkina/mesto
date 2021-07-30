@@ -19,4 +19,4 @@
 * Webpack
 
 
-https://skkomolkina.github.io/mesto
+# https://skkomolkina.github.io/mesto
